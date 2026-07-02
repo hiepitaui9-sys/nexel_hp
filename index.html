@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <meta name="description" content="株式会社NEXEL（ネクセル）は、営業を止めない解体、無事故の安全管理、特殊解体、付帯工事、分別・環境配慮など、高度な技術で高品質な解体工事を提供する専門企業です。">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
   <!-- Header -->
@@ -17,7 +19,7 @@
           <img src="images/logo.svg" alt="NEXEL ロゴ">
         </a>
       </div>
-      
+
       <nav class="header__nav">
         <ul class="header__nav-list">
           <li class="header__nav-item"><a href="index.html" class="header__nav-link is-active">TOP</a></li>
@@ -37,11 +39,11 @@
           <li class="header__nav-item"><a href="company.html" class="header__nav-link">会社案内</a></li>
         </ul>
       </nav>
-      
+
       <div class="header__cta">
         <a href="contact.html" class="btn-contact">お問い合わせ</a>
       </div>
-      
+
       <button class="header__menu-btn" aria-label="メニューを開く" aria-expanded="false">
         <span></span>
         <span></span>
@@ -51,11 +53,12 @@
   </header>
 
   <main class="top-main">
-    
+
     <!-- Hero Section -->
     <section class="hero" id="top">
       <div class="hero__bg">
-        <div class="image-placeholder is-hero"><span>[プレースホルダー: メインビジュアル背景]</span></div>
+        <div class="hero__bg-slide" style="background-image: url('images/hero-slider-1.png');"></div>
+        <div class="hero__bg-slide" style="background-image: url('images/hero-slider-2.png');"></div>
         <div class="hero__overlay"></div>
       </div>
       <div class="hero__inner">
@@ -63,7 +66,7 @@
           誰でもできる時代から<br>
           <span class="gold-text">選ばれる時代へ</span>
         </h1>
-        <p class="hero__sub">確かな技術 and 誠実な施工で、未来をつくる。</p>
+        <p class="hero__sub">確かな技術と誠実な施工で、未来をつくる。</p>
       </div>
     </section>
 
@@ -72,7 +75,7 @@
       <div class="container">
         <h2 class="section-title">NEXELの強み</h2>
         <div class="strengths-grid">
-          
+
           <!-- Card 1 -->
           <a href="demolition.html" class="strength-card">
             <div class="strength-card__bg">
@@ -157,7 +160,7 @@
       <div class="container">
         <h2 class="section-title">サービス内容</h2>
         <div class="services-grid">
-          
+
           <!-- Service 1 -->
           <div class="service-card">
             <div class="service-card__icon">
@@ -225,9 +228,9 @@
             施工実績一覧を見る ＞
           </a>
         </div>
-        
+
         <div class="works-grid">
-          
+
           <!-- Work 1 -->
           <a href="works.html" class="work-card">
             <div class="work-card__image-wrapper">
@@ -276,12 +279,12 @@
             <img src="images/icons/icon-instagram.svg" alt="Instagramアイコン" class="instagram-box__icon">
             <span class="instagram-box__name">Instagram</span>
           </div>
-          
+
           <div class="instagram-box__text">
             <p>施工現場の様子や最新情報を発信中！</p>
             <p>ぜひフォローして、最新の施工事例をご覧ください。</p>
           </div>
-          
+
           <div class="instagram-box__gallery">
             <div class="instagram-box__thumb">
               <div class="image-placeholder" style="aspect-ratio: 1;"><span>[画像: インスタ1]</span></div>
@@ -296,7 +299,7 @@
               <div class="image-placeholder" style="aspect-ratio: 1;"><span>[画像: インスタ4]</span></div>
             </div>
           </div>
-          
+
           <div class="instagram-box__action">
             <span class="instagram-box__handle">@nexel_kaitai</span>
             <a href="#" class="btn-follow" target="_blank" rel="noopener noreferrer">フォローする ＞</a>
@@ -338,13 +341,13 @@
     document.addEventListener('DOMContentLoaded', () => {
       const menuBtn = document.querySelector('.header__menu-btn');
       const headerNav = document.querySelector('.header__nav');
-      
+
       menuBtn.addEventListener('click', () => {
         const isActive = menuBtn.classList.toggle('is-active');
         headerNav.classList.toggle('is-active');
         menuBtn.setAttribute('aria-expanded', isActive);
       });
-      
+
       // Close menu when clicking nav links
       document.querySelectorAll('.header__nav-link').forEach(link => {
         link.addEventListener('click', () => {
@@ -357,4 +360,5 @@
   </script>
 
 </body>
+
 </html>
