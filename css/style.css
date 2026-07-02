@@ -259,6 +259,105 @@ ul, ol {
   transform: translateY(-8px) rotate(-45deg);
 }
 
+/* Header Dropdown Menu */
+.header__nav-item.has-dropdown {
+  position: relative;
+}
+
+/* Desktop dropdown */
+@media (min-width: 769px) {
+  .header__dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(15px);
+    width: 240px;
+    background-color: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    padding: 8px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1000;
+  }
+
+  /* Triangle pointer */
+  .header__dropdown-menu::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent rgba(10, 10, 10, 0.95) transparent;
+  }
+
+  .header__nav-item.has-dropdown:hover .header__dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .header__dropdown-menu li {
+    width: 100%;
+  }
+
+  .header__dropdown-menu li a {
+    display: block;
+    padding: 12px 20px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.85);
+    transition: all var(--transition-fast);
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .header__dropdown-menu li:last-child a {
+    border-bottom: none;
+  }
+
+  .header__dropdown-menu li a:hover {
+    color: var(--color-gold);
+    background-color: rgba(255, 255, 255, 0.03);
+    padding-left: 24px;
+  }
+}
+
+/* Mobile dropdown */
+@media (max-width: 768px) {
+  .header__dropdown-menu {
+    width: 100%;
+    padding: 4px 0 12px 16px;
+    border-left: 1px solid rgba(212, 175, 55, 0.2);
+    margin-top: 4px;
+    margin-left: 8px;
+  }
+
+  .header__dropdown-menu li {
+    width: 100%;
+  }
+
+  .header__dropdown-menu li a {
+    display: block;
+    padding: 10px 0;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.2s ease;
+  }
+
+  .header__dropdown-menu li a:hover,
+  .header__dropdown-menu li a:active {
+    color: var(--color-gold);
+  }
+}
+
 /* ========================================
    Main / TOP page layout
    ======================================== */

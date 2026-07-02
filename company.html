@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>会社案内 - 株式会社NEXEL（ネクセル）</title>
+  <title>会社概要 - 株式会社NEXEL（ネクセル）</title>
   <meta name="description" content="株式会社NEXEL（ネクセル）の会社概要・企業理念・沿革・アクセスマップ。東京を中心に、安全・品質・環境配慮を徹底した解体工事を提供しています。">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
   <!-- Header -->
@@ -22,7 +24,16 @@
           <li class="header__nav-item"><a href="index.html" class="header__nav-link">TOP</a></li>
           <li class="header__nav-item"><a href="index.html#business" class="header__nav-link">事業内容</a></li>
           <li class="header__nav-item"><a href="works.html" class="header__nav-link">施工実績</a></li>
-          <li class="header__nav-item"><a href="index.html#technology" class="header__nav-link">技術力</a></li>
+          <li class="header__nav-item has-dropdown">
+            <a href="index.html#technology" class="header__nav-link">技術力</a>
+            <ul class="header__dropdown-menu">
+              <li><a href="demolition.html">営業を止めない解体</a></li>
+              <li><a href="safety.html">事故を起こさない解体</a></li>
+              <li><a href="special.html">特殊解体に対応</a></li>
+              <li><a href="ancillary.html">解体に付随する工事</a></li>
+              <li><a href="environment.html">分別・環境への配慮</a></li>
+            </ul>
+          </li>
           <li class="header__nav-item"><a href="safety.html" class="header__nav-link">安全への取り組み</a></li>
           <li class="header__nav-item"><a href="company.html" class="header__nav-link is-active">会社案内</a></li>
         </ul>
@@ -39,14 +50,14 @@
   </header>
 
   <div class="sub-page">
-    
+
     <!-- Breadcrumbs -->
     <div class="breadcrumbs">
       <div class="container">
         <ol class="breadcrumbs__list">
           <li class="breadcrumbs__item"><a href="index.html">TOP</a></li>
           <li class="breadcrumbs__separator">></li>
-          <li class="breadcrumbs__item is-current">会社案内</li>
+          <li class="breadcrumbs__item is-current">会社概要</li>
         </ol>
       </div>
     </div>
@@ -69,17 +80,17 @@
     <section class="sub-section">
       <div class="container">
         <div class="philo-split">
-          
+
           <div class="philo-split__left">
             <div class="image-placeholder"><span>[画像: 企業理念イメージ]</span></div>
           </div>
-          
+
           <div class="philo-split__right">
-            <span class="philo-split__tag">PHILOSOPHY</span>
-            <h2 class="philo-split__title">壊すだけじゃない。<br>信頼を残す解体。</h2>
+            <span class="philo-split__tag">代表挨拶</span>
+            <h2 class="philo-split__title">メッセージ</h2>
             <p class="philo-split__desc">
-              私たちは、解体工事を「未来をつくるための第一歩」と考えています。<br>
-              安全・品質・環境への配慮を徹底し、すべてのステークホルダーから信頼されるパートナーであり続けます。
+              代表挨拶<br>
+              ここに挨拶が入ります
             </p>
           </div>
 
@@ -91,9 +102,9 @@
     <section class="sub-section" style="background-color: var(--color-bg-panel);">
       <div class="container">
         <h2 class="sub-section__title">会社概要</h2>
-        
+
         <div class="overview-split">
-          
+
           <!-- Table -->
           <table class="overview-table">
             <tr>
@@ -151,9 +162,9 @@
     <section class="sub-section">
       <div class="container">
         <h2 class="sub-section__title">沿革</h2>
-        
+
         <div class="timeline">
-          
+
           <!-- Node 1 -->
           <div class="timeline-node">
             <span class="timeline-node__year">2017</span>
@@ -204,9 +215,9 @@
     <section class="sub-section" style="background-color: var(--color-bg-panel);" id="contact">
       <div class="container">
         <h2 class="sub-section__title">アクセス</h2>
-        
+
         <div class="access-split">
-          
+
           <!-- Map Placeholder -->
           <div class="access-map">
             <div class="image-placeholder"><span>[画像プレースホルダー: アクセスマップ]</span></div>
@@ -222,7 +233,7 @@
                 <span>FAX: 03-6802-6438</span>
               </div>
             </div>
-            
+
             <div class="access-directions">
               <div class="access-directions__item">
                 つくばエクスプレス「八潮駅」より車で約10分
@@ -269,7 +280,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       const menuBtn = document.querySelector('.header__menu-btn');
       const headerNav = document.querySelector('.header__nav');
-      
+
       menuBtn.addEventListener('click', () => {
         const isActive = menuBtn.classList.toggle('is-active');
         headerNav.classList.toggle('is-active');
@@ -279,4 +290,5 @@
   </script>
 
 </body>
+
 </html>
