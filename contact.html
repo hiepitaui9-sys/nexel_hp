@@ -112,8 +112,7 @@
                   <option value="" disabled selected>選択してください</option>
                   <option value="estimate">お見積もりのご依頼</option>
                   <option value="survey">現地調査のご相談</option>
-                  <option value="question">工法や対応エリアについてのご質問</option>
-                  <option value="recruit">採用について</option>
+                  <option value="recruit">求人・協力会社について</option>
                   <option value="other">その他</option>
                 </select>
                 <div class="form-error" id="contactTypeError">お問い合わせ種別を選択してください。</div>
@@ -141,14 +140,14 @@
                 </div>
               </div>
 
-              <!-- 会社名 / 部署名 (動的制御) -->
+              <!-- 会社名 / 部署名 -->
               <div class="form-group" id="companyGroup">
                 <div class="form-row-label">
                   <label for="companyName" class="form-label">会社名 / 部署名</label>
-                  <span class="form-badge is-required" id="companyBadge">必須</span>
+                  <span class="form-badge is-required">必須</span>
                 </div>
-                <input type="text" id="companyName" class="form-control" placeholder="例：株式会社NEXEL" required>
-                <div class="form-error" id="companyNameError">会社名を入力してください。</div>
+                <input type="text" id="companyName" class="form-control" placeholder="例：株式会社NEXEL（個人の場合は「なし」等）" required>
+                <div class="form-error" id="companyNameError">会社名・部署名を入力してください。</div>
               </div>
 
               <!-- お名前 -->
@@ -181,15 +180,15 @@
                 <div class="form-error" id="userPhoneError">有効な電話番号（ハイフンなし10桁〜11桁）を入力してください。</div>
               </div>
 
-              <!-- 物件の所在地 -->
-              <div class="form-group">
+              <!-- 物件の所在地 (①・②で表示、任意) -->
+              <div class="form-group" id="addressGroup">
                 <div class="form-row-label">
                   <span class="form-label">物件の所在地</span>
-                  <span class="form-badge is-required">必須</span>
+                  <span class="form-badge is-optional">任意</span>
                 </div>
                 <div class="form-address-group">
                   <div>
-                    <select id="addressPref" class="form-control" required>
+                    <select id="addressPref" class="form-control">
                       <option value="" disabled selected>都道府県</option>
                       <option value="tokyo">東京都</option>
                       <option value="kanagawa">神奈川県</option>
@@ -202,63 +201,59 @@
                     </select>
                   </div>
                   <div>
-                    <input type="text" id="addressDetail" class="form-control" placeholder="市区町村・番地・ビル名など" required>
+                    <input type="text" id="addressDetail" class="form-control" placeholder="市区町村・番地・ビル名など">
                   </div>
                 </div>
-                <div class="form-error" id="addressError">都道府県および住所を入力してください。</div>
               </div>
 
-              <!-- 物件種別 -->
-              <div class="form-group">
+              <!-- 物件種別 (①のみ、任意) -->
+              <div class="form-group" id="propertyGroup">
                 <div class="form-row-label">
                   <label for="propertyType" class="form-label">物件種別</label>
-                  <span class="form-badge is-required">必須</span>
+                  <span class="form-badge is-optional">任意</span>
                 </div>
-                <select id="propertyType" class="form-control" required>
+                <select id="propertyType" class="form-control">
                   <option value="" disabled selected>選択してください</option>
-                  <option value="shop">店舗 / 商業施設</option>
-                  <option value="office">オフィス / 事務所</option>
-                  <option value="factory">工場 / 倉庫</option>
-                  <option value="house">戸建て住宅</option>
-                  <option value="apartment">マンション / アパート</option>
+                  <option value="shop">店舗</option>
+                  <option value="office">オフィス</option>
+                  <option value="house">戸建て</option>
+                  <option value="plant">プラント</option>
                   <option value="other">その他</option>
                 </select>
-                <div class="form-error" id="propertyTypeError">物件種別を選択してください。</div>
               </div>
 
-              <!-- 工事内容 -->
-              <div class="form-group">
+              <!-- 工事内容 (①のみ、任意) -->
+              <div class="form-group" id="workTypeGroup">
                 <div class="form-row-label">
                   <span class="form-label">工事内容（複数選択可）</span>
-                  <span class="form-badge is-required">必須</span>
+                  <span class="form-badge is-optional">任意</span>
                 </div>
                 <div class="form-checkbox-grid">
                   <label class="form-checkbox-label">
                     <input type="checkbox" name="workType" value="skeleton" class="form-checkbox-input">
-                    <span>内装解体・スケルトン戻し</span>
+                    <span>内装解体</span>
                   </label>
                   <label class="form-checkbox-label">
                     <input type="checkbox" name="workType" value="restoration" class="form-checkbox-input">
-                    <span>原状回復工事</span>
-                  </label>
-                  <label class="form-checkbox-label">
-                    <input type="checkbox" name="workType" value="special" class="form-checkbox-input">
-                    <span>特殊解体（狭小地・高所等）</span>
+                    <span>原状回復</span>
                   </label>
                   <label class="form-checkbox-label">
                     <input type="checkbox" name="workType" value="asbestos" class="form-checkbox-input">
-                    <span>アスベスト関連工事</span>
+                    <span>アスベスト</span>
                   </label>
                   <label class="form-checkbox-label">
-                    <input type="checkbox" name="workType" value="ancillary" class="form-checkbox-input">
-                    <span>付随工事（電気・設備撤去等）</span>
+                    <input type="checkbox" name="workType" value="special" class="form-checkbox-input">
+                    <span>特殊解体</span>
+                  </label>
+                  <label class="form-checkbox-label">
+                    <input type="checkbox" name="workType" value="other" class="form-checkbox-input">
+                    <span>その他</span>
                   </label>
                 </div>
-                <div class="form-error" id="workTypeError">少なくとも1つの工事内容を選択してください。</div>
               </div>
 
-              <!-- おおよその面積 -->
-              <div class="form-group">
+              <!-- おおよその面積 (①のみ、任意) -->
+              <div class="form-group" id="areaGroup">
                 <div class="form-row-label">
                   <label for="approxArea" class="form-label">おおよその面積</label>
                   <span class="form-badge is-optional">任意</span>
@@ -266,30 +261,28 @@
                 <input type="text" id="approxArea" class="form-control" placeholder="例：50坪 / 165㎡">
               </div>
 
-              <!-- 着工希望時期 -->
-              <div class="form-group">
+              <!-- 着工希望時期 (①のみ、任意) -->
+              <div class="form-group" id="timeGroup">
                 <div class="form-row-label">
                   <label for="constructionTime" class="form-label">着工希望時期</label>
-                  <span class="form-badge is-required">必須</span>
+                  <span class="form-badge is-optional">任意</span>
                 </div>
-                <select id="constructionTime" class="form-control" required>
+                <select id="constructionTime" class="form-control">
                   <option value="" disabled selected>選択してください</option>
                   <option value="asap">できるだけ早く</option>
                   <option value="1month">1ヶ月以内</option>
                   <option value="3months">3ヶ月以内</option>
                   <option value="undecided">時期未定・見積もりのみ</option>
                 </select>
-                <div class="form-error" id="constructionTimeError">着工希望時期を選択してください。</div>
               </div>
 
-              <!-- 図面・現場写真【添付】 -->
-              <div class="form-group">
+              <!-- 図面・現場写真【添付】 (①のみ、任意) -->
+              <div class="form-group" id="fileGroup">
                 <div class="form-row-label">
                   <span class="form-label">図面・現場写真</span>
                   <span class="form-badge is-optional">任意</span>
                 </div>
                 <div class="file-upload-zone" id="dropzone">
-                  <!-- Upload SVG Icon -->
                   <svg class="file-upload-zone__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                     <polyline points="17 8 12 3 7 8"></polyline>
@@ -302,13 +295,24 @@
                 <div class="file-preview-list" id="fileList"></div>
               </div>
 
-              <!-- お問い合わせ詳細 -->
-              <div class="form-group">
+              <!-- 現在の職業 / 年齢など (③のみ、必須) -->
+              <div class="form-group" id="recruitGroup">
+                <div class="form-row-label">
+                  <label for="recruitInfo" class="form-label">現在の職業 / 年齢など</label>
+                  <span class="form-badge is-required">必須</span>
+                </div>
+                <input type="text" id="recruitInfo" class="form-control" placeholder="例：会社員 / 30歳、解体業一人親方 / 35歳 など">
+                <div class="form-error" id="recruitInfoError">現在の職業 / 年齢などを入力してください。</div>
+              </div>
+
+              <!-- お問い合わせ詳細 (①・②・③共通、必須/任意切り替え) -->
+              <div class="form-group" id="detailsGroup">
                 <div class="form-row-label">
                   <label for="details" class="form-label">お問い合わせ詳細</label>
-                  <span class="form-badge is-optional">任意</span>
+                  <span class="form-badge" id="detailsBadge">任意</span>
                 </div>
-                <textarea id="details" class="form-control" rows="6" placeholder="夜間工事の希望や、近隣対策で重視したい点などがございましたらご記入ください。"></textarea>
+                <textarea id="details" class="form-control" rows="6" placeholder="お問い合わせ内容をご記入ください。"></textarea>
+                <div class="form-error" id="detailsError">お問い合わせ詳細を入力してください。</div>
               </div>
 
               <!-- プライバシーポリシー同意チェック -->
@@ -338,107 +342,75 @@
       </div>
     </section>
 
-    <!-- Unified CTA Banner (For Emergency Phone Call Re-assurances) -->
-    <section class="cta-banner">
-      <div class="container cta-banner__inner">
-        <div class="cta-banner__contact">
-          <div class="cta-banner__phone-icon">
-            <img src="images/icons/icon-phone.svg" alt="電話アイコン">
-          </div>
-          <div class="cta-banner__info">
-            <p class="cta-banner__lead">お急ぎの方はお電話でも承っております</p>
-            <p class="cta-banner__sub">お気軽にご連絡ください</p>
-          </div>
-        </div>
-        <a href="tel:0368026439" class="btn-cta-submit">
-          お電話をかける
-          <span>＞</span>
-        </a>
-      </div>
-    </section>
-
-  </div>
-
-  <!-- Privacy Policy Overlay Modal -->
-  <div class="policy-modal" id="policyModal">
-    <div class="policy-modal__container">
-      <div class="policy-modal__header">
-        <h3 class="policy-modal__title">個人情報保護方針</h3>
-        <button class="policy-modal__close" id="policyModalClose">&times;</button>
-      </div>
-      <div class="policy-modal__body">
-        <h4>1. 個人情報の収集・利用</h4>
-        <p>株式会社NEXEL（以下「当社」）は、解体工事等に関するお見積り・お問い合わせへの対応、および業務の円滑な遂行を目的として、必要な範囲で適切にお客様の個人情報（氏名、電話番号、メールアドレス等）を収集・利用いたします。</p>
-        
-        <h4>2. 個人情報の管理・保護</h4>
-        <p>当社は、お預かりした個人情報に対して、紛失、改ざん、漏洩などの防止に向けて徹底した情報セキュリティ対策を講じ、厳重に管理いたします。</p>
-        
-        <h4>3. 第三者への開示・提供の禁止</h4>
-        <p>当社は、次のいずれかに該当する場合を除き、お客様の個人情報を第三者に開示または提供いたしません。</p>
-        <ul>
-          <li>・お客様の同意がある場合</li>
-          <li>・法令に基づき開示することが必要である場合</li>
-          <li>・当社の業務提携先・協力会社に対して、お客様のご要望に応じた工事手配に不可欠な範囲で開示する場合</li>
-        </ul>
-
-        <h4>4. 個人情報の照会・修正・削除</h4>
-        <p>お客様がご本人の個人情報の照会、修正、削除などをご希望される場合には、ご本人であることを確認の上、速やかに対応いたします。</p>
-
-        <h4>5. 法令遵守と見直し</h4>
-        <p>当社は、個人情報に関して適用される日本の法令およびその他の規範を遵守するとともに、本方針の内容を適宜見直し、その改善に努めます。</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p class="footer__copy">© 株式会社NEXEL All Rights Reserved.</p>
-    </div>
-  </footer>
-
-  <!-- Script for Hamburg menu, validations, dropzone, complete toggles -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      
-      // Hamburg menu controller
-      const menuBtn = document.querySelector('.header__menu-btn');
-      const headerNav = document.querySelector('.header__nav');
-      
-      menuBtn.addEventListener('click', () => {
-        const isActive = menuBtn.classList.toggle('is-active');
-        headerNav.classList.toggle('is-active');
-        menuBtn.setAttribute('aria-expanded', isActive);
-      });
-
       // ----------------------------------------------------
-      // Dynamic Customer Type Controls
+      // Dynamic Form Display Controls based on contactType
       // ----------------------------------------------------
-      const companyGroup = document.getElementById('companyGroup');
+      const contactType = document.getElementById('contactType');
       const companyNameInput = document.getElementById('companyName');
-      const companyBadge = document.getElementById('companyBadge');
-      const customerRadios = document.querySelectorAll('input[name="customerType"]');
+      
+      const addressGroup = document.getElementById('addressGroup');
+      const propertyGroup = document.getElementById('propertyGroup');
+      const workTypeGroup = document.getElementById('workTypeGroup');
+      const areaGroup = document.getElementById('areaGroup');
+      const timeGroup = document.getElementById('timeGroup');
+      const fileGroup = document.getElementById('fileGroup');
+      const recruitGroup = document.getElementById('recruitGroup');
+      
+      const detailsGroup = document.getElementById('detailsGroup');
+      const detailsBadge = document.getElementById('detailsBadge');
+      const detailsInput = document.getElementById('details');
 
-      function toggleCompanyField() {
-        const selectedValue = document.querySelector('input[name="customerType"]:checked').value;
-        if (selectedValue === 'corporation') {
-          companyGroup.classList.remove('is-hidden');
-          companyNameInput.setAttribute('required', 'required');
-          companyBadge.classList.remove('is-hidden');
-        } else {
-          companyGroup.classList.add('is-hidden');
-          companyNameInput.removeAttribute('required');
-          companyNameInput.value = '';
-          clearError(companyNameInput, document.getElementById('companyNameError'));
+      function handleContactTypeChange() {
+        const type = contactType.value;
+
+        // Hide conditional groups by default
+        addressGroup.classList.add('is-hidden');
+        propertyGroup.classList.add('is-hidden');
+        workTypeGroup.classList.add('is-hidden');
+        areaGroup.classList.add('is-hidden');
+        timeGroup.classList.add('is-hidden');
+        fileGroup.classList.add('is-hidden');
+        recruitGroup.classList.add('is-hidden');
+        
+        // Clear conditional errors
+        clearError(detailsInput, document.getElementById('detailsError'));
+        const recruitInfoInput = document.getElementById('recruitInfo');
+        clearError(recruitInfoInput, document.getElementById('recruitInfoError'));
+
+        // Reset details badge and requirements
+        detailsBadge.className = 'form-badge is-optional';
+        detailsBadge.innerText = '任意';
+        detailsInput.removeAttribute('required');
+
+        if (type === 'estimate' || type === 'survey') {
+          // ①「お見積もり」「現地調査」
+          addressGroup.classList.remove('is-hidden');
+          propertyGroup.classList.remove('is-hidden');
+          workTypeGroup.classList.remove('is-hidden');
+          areaGroup.classList.remove('is-hidden');
+          timeGroup.classList.remove('is-hidden');
+          fileGroup.classList.remove('is-hidden');
+        } else if (type === 'other') {
+          // ②「その他」
+          addressGroup.classList.remove('is-hidden');
+          
+          detailsBadge.className = 'form-badge is-required';
+          detailsBadge.innerText = '必須';
+          detailsInput.setAttribute('required', 'required');
+        } else if (type === 'recruit') {
+          // ③「求人・協力会社について」
+          recruitGroup.classList.remove('is-hidden');
+          
+          detailsBadge.className = 'form-badge is-required';
+          detailsBadge.innerText = '必須';
+          detailsInput.setAttribute('required', 'required');
         }
       }
 
-      customerRadios.forEach(radio => {
-        radio.addEventListener('change', toggleCompanyField);
-      });
-
-      // Initialize field
-      toggleCompanyField();
+      contactType.addEventListener('change', handleContactTypeChange);
+      
+      // Initialize view
+      handleContactTypeChange();
 
       // ----------------------------------------------------
       // Privacy Policy Modal Controls
@@ -554,20 +526,12 @@
       const nameInput = document.getElementById('userName');
       const emailInput = document.getElementById('userEmail');
       const phoneInput = document.getElementById('userPhone');
-      const prefSel = document.getElementById('addressPref');
-      const detailInput = document.getElementById('addressDetail');
-      const propSel = document.getElementById('propertyType');
-      const timeSel = document.getElementById('constructionTime');
       const policyCheck = document.getElementById('policyCheck');
 
       const typeErr = document.getElementById('contactTypeError');
       const nameErr = document.getElementById('userNameError');
       const emailErr = document.getElementById('userEmailError');
       const phoneErr = document.getElementById('userPhoneError');
-      const addressErr = document.getElementById('addressError');
-      const propErr = document.getElementById('propertyTypeError');
-      const workErr = document.getElementById('workTypeError');
-      const timeErr = document.getElementById('constructionTimeError');
       const policyErr = document.getElementById('policyCheckError');
 
       // Helper show error
@@ -593,17 +557,15 @@
       }
 
       function validateCompany() {
-        const selectedValue = document.querySelector('input[name="customerType"]:checked').value;
-        if (selectedValue === 'corporation') {
-          if (!companyNameInput.value.trim()) {
-            setError(companyNameInput, document.getElementById('companyNameError'));
-            return false;
-          }
+        if (!companyNameInput.value.trim()) {
+          setError(companyNameInput, document.getElementById('companyNameError'));
+          return false;
         }
         clearError(companyNameInput, document.getElementById('companyNameError'));
         return true;
       }
 
+      // お名前
       function validateName() {
         if (!nameInput.value.trim()) {
           setError(nameInput, nameErr);
@@ -613,6 +575,7 @@
         return true;
       }
 
+      // メールアドレス
       function validateEmail() {
         const val = emailInput.value.trim();
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -624,8 +587,9 @@
         return true;
       }
 
+      // 電話番号
       function validatePhone() {
-        const val = phoneInput.value.trim().replace(/-/g, ''); // strip hyphens
+        const val = phoneInput.value.trim().replace(/-/g, '');
         const phoneRegex = /^\d{10,11}$/;
         if (!val || !phoneRegex.test(val)) {
           setError(phoneInput, phoneErr);
@@ -635,58 +599,31 @@
         return true;
       }
 
-      function validateAddress() {
-        let ok = true;
-        if (!prefSel.value) {
-          prefSel.classList.add('is-invalid');
-          ok = false;
-        } else {
-          prefSel.classList.remove('is-invalid');
-        }
-        if (!detailInput.value.trim()) {
-          detailInput.classList.add('is-invalid');
-          ok = false;
-        } else {
-          detailInput.classList.remove('is-invalid');
-        }
-
-        if (!ok) {
-          addressErr.style.display = 'block';
+      // 現在の職業 / 年齢など (採用・協力会社のみ)
+      function validateRecruitInfo() {
+        if (recruitGroup.classList.contains('is-hidden')) return true;
+        const recruitInfoInput = document.getElementById('recruitInfo');
+        if (!recruitInfoInput.value.trim()) {
+          setError(recruitInfoInput, document.getElementById('recruitInfoError'));
           return false;
         }
-        addressErr.style.display = 'none';
+        clearError(recruitInfoInput, document.getElementById('recruitInfoError'));
         return true;
       }
 
-      function validateProperty() {
-        if (!propSel.value) {
-          setError(propSel, propErr);
-          return false;
+      // お問い合わせ詳細
+      function validateDetails() {
+        if (detailsInput.hasAttribute('required')) {
+          if (!detailsInput.value.trim()) {
+            setError(detailsInput, document.getElementById('detailsError'));
+            return false;
+          }
         }
-        clearError(propSel, propErr);
+        clearError(detailsInput, document.getElementById('detailsError'));
         return true;
       }
 
-      function validateWorkTypes() {
-        const checked = document.querySelectorAll('input[name="workType"]:checked');
-        if (checked.length === 0) {
-          workErr.style.display = 'block';
-          return false;
-        }
-        workErr.style.display = 'none';
-        return true;
-      }
-
-      function validateTime() {
-        if (!timeSel.value) {
-          setError(timeSel, timeErr);
-          return false;
-        }
-        clearError(timeSel, timeErr);
-        return true;
-      }
-
-      // Ensure that policyCheck displays errors correctly on focusout/interaction
+      // 同意チェック
       function validatePolicy() {
         if (!policyCheck.checked) {
           policyCheck.classList.add('is-invalid');
