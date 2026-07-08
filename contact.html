@@ -17,7 +17,7 @@
     <div class="container header__inner">
       <div class="header__logo">
         <a href="index.html">
-          <img src="images/logo.svg" alt="NEXEL ロゴ">
+          <img src="images/logo.png" alt="NEXEL ロゴ">
         </a>
       </div>
       <nav class="header__nav">
@@ -80,12 +80,12 @@
               通常、2営業日以内に担当スタッフより折り返しメール、またはお電話にてご連絡を差し上げます。<br>
               お急ぎの場合は、お電話でもお気軽にお問い合わせください。
             </p>
-            <a href="tel:0368026439" class="btn-contact-tel">
+            <a href="tel:0366969259" class="btn-contact-tel">
               <svg class="btn-contact-tel__icon" viewBox="0 0 24 24">
                 <path
                   d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.57a1 1 0 0 0-1.01.24l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.2a1 1 0 0 0 .25-1.02c-.37-1.11-.57-2.3-.57-3.53a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1C3 16.58 12.42 21 21 21a1 1 0 0 0 1-1v-4.62a1 1 0 0 0-1-1z" />
               </svg>
-              03-6802-6439
+              03-6696-9259
             </a>
           </div>
 
@@ -350,9 +350,39 @@
       </div>
     </section>
 
-    // ----------------------------------------------------
-    // Dynamic Form Display Controls based on contactType
-    // ----------------------------------------------------
+    <!-- Privacy Policy Modal -->
+    <div class="policy-modal" id="policyModal">
+      <div class="policy-modal__container">
+        <div class="policy-modal__header">
+          <h3 class="policy-modal__title">個人情報保護方針</h3>
+          <button class="policy-modal__close" id="policyModalClose">&times;</button>
+        </div>
+        <div class="policy-modal__body">
+          <h4>個人情報の管理</h4>
+          <p>当社は、お客さまの個人情報を正確かつ最新の状態に保ち、個人情報への不正アクセス・紛失・破損・改ざん・漏洩などを防止するため、セキュリティシステムの維持・管理体制整備・社員教育の徹底等の必要な措置を講じ、安全対策を実施し個人情報の厳重な管理を行ないます。</p>
+          
+          <h4>個人情報の利用目的</h4>
+          <p>お客さまからお預かりした個人情報は、当社からのご連絡や業務のご案内やご質問に対する回答として、電子メールや資料のご送付に利用いたします。</p>
+          
+          <h4>個人情報の第三者への開示・提供の禁止</h4>
+          <p>当社は、お客さまよりお預かりした個人情報を適切に管理し、次のいずれかに該当する場合を除き、個人情報を第三者に開示いたしません。</p>
+          <ul>
+            <li>お客さまの同意がある場合</li>
+            <li>お客さまが希望されるサービスを行なうために当社が業務を委託する業者に対して開示する場合</li>
+            <li>法令に基づき開示することが必要である場合</li>
+          </ul>
+          
+          <h4>法令、規範の遵守と見直し</h4>
+          <p>当社は、保有する個人情報に関して適用される日本の法令、その他規範を遵守するとともに、本ポリシーの内容を適宜見直し、その改善に努めます。</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // ----------------------------------------------------
+        // Dynamic Form Display Controls based on contactType
+        // ----------------------------------------------------
     const contactType = document.getElementById('contactType');
     const companyNameInput = document.getElementById('companyName');
 
@@ -369,50 +399,54 @@
     const detailsInput = document.getElementById('details');
 
     function handleContactTypeChange() {
-    const type = contactType.value;
+      try {
+        const type = contactType.value;
 
-    // Hide conditional groups by default
-    addressGroup.classList.add('is-hidden');
-    propertyGroup.classList.add('is-hidden');
-    workTypeGroup.classList.add('is-hidden');
-    areaGroup.classList.add('is-hidden');
-    timeGroup.classList.add('is-hidden');
-    fileGroup.classList.add('is-hidden');
-    recruitGroup.classList.add('is-hidden');
+        // Hide conditional groups by default
+        addressGroup.classList.add('is-hidden');
+        propertyGroup.classList.add('is-hidden');
+        workTypeGroup.classList.add('is-hidden');
+        areaGroup.classList.add('is-hidden');
+        timeGroup.classList.add('is-hidden');
+        fileGroup.classList.add('is-hidden');
+        recruitGroup.classList.add('is-hidden');
 
-    // Clear conditional errors
-    clearError(detailsInput, document.getElementById('detailsError'));
-    const recruitInfoInput = document.getElementById('recruitInfo');
-    clearError(recruitInfoInput, document.getElementById('recruitInfoError'));
+        // Clear conditional errors
+        clearError(detailsInput, document.getElementById('detailsError'));
+        const recruitInfoInput = document.getElementById('recruitInfo');
+        clearError(recruitInfoInput, document.getElementById('recruitInfoError'));
 
-    // Reset details badge and requirements
-    detailsBadge.className = 'form-badge is-optional';
-    detailsBadge.innerText = '任意';
-    detailsInput.removeAttribute('required');
+        // Reset details badge and requirements
+        detailsBadge.className = 'form-badge is-optional';
+        detailsBadge.innerText = '任意';
+        detailsInput.removeAttribute('required');
 
-    if (type === 'estimate' || type === 'survey') {
-    // ①「お見積もり」「現地調査」
-    addressGroup.classList.remove('is-hidden');
-    propertyGroup.classList.remove('is-hidden');
-    workTypeGroup.classList.remove('is-hidden');
-    areaGroup.classList.remove('is-hidden');
-    timeGroup.classList.remove('is-hidden');
-    fileGroup.classList.remove('is-hidden');
-    } else if (type === 'other') {
-    // ②「その他」
-    addressGroup.classList.remove('is-hidden');
+        if (type === 'estimate' || type === 'survey') {
+          // ①「お見積もり」「現地調査」
+          addressGroup.classList.remove('is-hidden');
+          propertyGroup.classList.remove('is-hidden');
+          workTypeGroup.classList.remove('is-hidden');
+          areaGroup.classList.remove('is-hidden');
+          timeGroup.classList.remove('is-hidden');
+          fileGroup.classList.remove('is-hidden');
+        } else if (type === 'other') {
+          // ②「その他」
+          addressGroup.classList.remove('is-hidden');
+          
+          detailsBadge.className = 'form-badge is-required';
+          detailsBadge.innerText = '必須';
+          detailsInput.setAttribute('required', 'required');
+        } else if (type === 'recruit') {
+          // ③「求人・協力会社について」
+          recruitGroup.classList.remove('is-hidden');
 
-    detailsBadge.className = 'form-badge is-required';
-    detailsBadge.innerText = '必須';
-    detailsInput.setAttribute('required', 'required');
-    } else if (type === 'recruit') {
-    // ③「求人・協力会社について」
-    recruitGroup.classList.remove('is-hidden');
-
-    detailsBadge.className = 'form-badge is-required';
-    detailsBadge.innerText = '必須';
-    detailsInput.setAttribute('required', 'required');
-    }
+          detailsBadge.className = 'form-badge is-optional';
+          detailsBadge.innerText = '任意';
+          detailsInput.removeAttribute('required');
+        }
+      } catch (err) {
+        console.error("handleContactTypeChange failed:", err);
+      }
     }
 
     contactType.addEventListener('change', handleContactTypeChange);
@@ -423,24 +457,34 @@
     // ----------------------------------------------------
     // Privacy Policy Modal Controls
     // ----------------------------------------------------
-    const policyModal = document.getElementById('policyModal');
-    const policyLink = document.getElementById('policyLink');
-    const policyModalClose = document.getElementById('policyModalClose');
+    try {
+      const policyModal = document.getElementById('policyModal');
+      const policyLink = document.getElementById('policyLink');
+      const policyModalClose = document.getElementById('policyModalClose');
 
-    policyLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    policyModal.classList.add('is-active');
-    });
+      if (policyLink && policyModal) {
+        policyLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          policyModal.classList.add('is-active');
+        });
+      }
 
-    policyModalClose.addEventListener('click', () => {
-    policyModal.classList.remove('is-active');
-    });
+      if (policyModalClose && policyModal) {
+        policyModalClose.addEventListener('click', () => {
+          policyModal.classList.remove('is-active');
+        });
+      }
 
-    policyModal.addEventListener('click', (e) => {
-    if (e.target === policyModal) {
-    policyModal.classList.remove('is-active');
+      if (policyModal) {
+        policyModal.addEventListener('click', (e) => {
+          if (e.target === policyModal) {
+            policyModal.classList.remove('is-active');
+          }
+        });
+      }
+    } catch (err) {
+      console.warn("Privacy policy modal elements not found or error occurred:", err);
     }
-    });
 
     // ----------------------------------------------------
     // File Drag and Drop Controls
@@ -450,29 +494,33 @@
     const fileList = document.getElementById('fileList');
     let uploadedFiles = [];
 
-    dropzone.addEventListener('click', () => {
-    fileInput.click();
-    });
+    if (dropzone && fileInput) {
+      dropzone.addEventListener('click', () => {
+        fileInput.click();
+      });
 
-    dropzone.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    dropzone.classList.add('is-dragover');
-    });
+      dropzone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropzone.classList.add('is-dragover');
+      });
 
-    ['dragleave', 'drop'].forEach(event => {
-    dropzone.addEventListener(event, () => {
-    dropzone.classList.remove('is-dragover');
-    });
-    });
+      ['dragleave', 'drop'].forEach(event => {
+        dropzone.addEventListener(event, () => {
+          dropzone.classList.remove('is-dragover');
+        });
+      });
 
-    dropzone.addEventListener('drop', (e) => {
-    e.preventDefault();
-    handleFiles(e.dataTransfer.files);
-    });
+      dropzone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        handleFiles(e.dataTransfer.files);
+      });
+    }
 
-    fileInput.addEventListener('change', () => {
-    handleFiles(fileInput.files);
-    });
+    if (fileInput) {
+      fileInput.addEventListener('change', () => {
+        handleFiles(fileInput.files);
+      });
+    }
 
     function handleFiles(files) {
     const allowedTypes = ['application/pdf', 'image/jpeg', 'image/jpg', 'image/png'];
@@ -643,23 +691,36 @@
       const recruitInfoInput = document.getElementById('recruitInfo');
 
       // Attach blur & input listeners for real-time validate
-      typeSel.addEventListener('change', validateType);
-      companyNameInput.addEventListener('blur', validateCompany);
-      companyNameInput.addEventListener('input', validateCompany);
-      nameInput.addEventListener('blur', validateName);
-      nameInput.addEventListener('input', validateName);
-      emailInput.addEventListener('blur', validateEmail);
-      emailInput.addEventListener('input', validateEmail);
-      phoneInput.addEventListener('blur', validatePhone);
-      phoneInput.addEventListener('input', validatePhone);
-      recruitInfoInput.addEventListener('blur', validateRecruitInfo);
-      recruitInfoInput.addEventListener('input', validateRecruitInfo);
-      detailsInput.addEventListener('blur', validateDetails);
-      detailsInput.addEventListener('input', validateDetails);
-      policyCheck.addEventListener('change', validatePolicy);
+      if (typeSel) typeSel.addEventListener('change', validateType);
+      if (companyNameInput) {
+        companyNameInput.addEventListener('blur', validateCompany);
+        companyNameInput.addEventListener('input', validateCompany);
+      }
+      if (nameInput) {
+        nameInput.addEventListener('blur', validateName);
+        nameInput.addEventListener('input', validateName);
+      }
+      if (emailInput) {
+        emailInput.addEventListener('blur', validateEmail);
+        emailInput.addEventListener('input', validateEmail);
+      }
+      if (phoneInput) {
+        phoneInput.addEventListener('blur', validatePhone);
+        phoneInput.addEventListener('input', validatePhone);
+      }
+      if (recruitInfoInput) {
+        recruitInfoInput.addEventListener('blur', validateRecruitInfo);
+        recruitInfoInput.addEventListener('input', validateRecruitInfo);
+      }
+      if (detailsInput) {
+        detailsInput.addEventListener('blur', validateDetails);
+        detailsInput.addEventListener('input', validateDetails);
+      }
+      if (policyCheck) policyCheck.addEventListener('change', validatePolicy);
 
       // Form submission validation
-      form.addEventListener('submit', (e) => {
+      if (form) {
+        form.addEventListener('submit', (e) => {
       e.preventDefault();
 
       const isTypeOk = validateType();
@@ -700,7 +761,7 @@
       }
       }
       });
-
+      }
       });
       </script>
 
