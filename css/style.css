@@ -2593,7 +2593,10 @@ ul, ol {
 }
 
 .overview-img {
-  height: 100%;
+  aspect-ratio: 905 / 1059;
+  max-height: 100%;
+  width: 100%;
+  align-self: center;
   overflow: hidden;
   border: 1px solid var(--color-border-subtle);
 }
@@ -2878,11 +2881,7 @@ ul, ol {
   .overview-split {
     grid-template-columns: 1fr;
   }
-  
-  .overview-img {
-    aspect-ratio: 16 / 9;
-    height: auto;
-  }
+
   
   .timeline {
     grid-template-columns: repeat(3, 1fr);
