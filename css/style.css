@@ -213,17 +213,21 @@ ul, ol {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity var(--transition-fast);
+  border: 1px solid var(--color-gold);
+  height: 42px;
+  padding: 0 16px;
+  transition: all var(--transition-fast);
+  background-color: transparent;
 }
 
 .header__insta-link img {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   display: block;
 }
 
 .header__insta-link:hover {
-  opacity: 0.7;
+  background-color: rgba(197, 160, 89, 0.1);
 }
 
 .btn-contact {
