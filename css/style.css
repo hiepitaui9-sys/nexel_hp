@@ -206,6 +206,24 @@ ul, ol {
 .header__cta {
   display: flex;
   align-items: center;
+  gap: 16px;
+}
+
+.header__insta-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity var(--transition-fast);
+}
+
+.header__insta-link img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.header__insta-link:hover {
+  opacity: 0.7;
 }
 
 .btn-contact {
@@ -1451,7 +1469,7 @@ ul, ol {
 
 .safety-actions-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
@@ -1492,6 +1510,8 @@ ul, ol {
   padding: 40px 32px;
   display: flex;
   flex-direction: column;
+  max-width: 800px;
+  margin: 60px auto 0;
 }
 
 .safety-promise-panel__title {
@@ -2795,8 +2815,8 @@ ul, ol {
     grid-template-columns: repeat(3, 1fr);
   }
   
-  .safety-split {
-    grid-template-columns: 1fr;
+  .safety-actions-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
   
   .special-items-grid {
@@ -3027,6 +3047,11 @@ ul, ol {
   
   .safety-actions-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .safety-promise-panel {
+    margin-top: 40px;
+    padding: 30px 20px;
   }
   
   .demolition-header-box {
