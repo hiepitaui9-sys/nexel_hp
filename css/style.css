@@ -2593,7 +2593,7 @@ ul, ol {
 }
 
 .overview-img {
-  aspect-ratio: 4 / 3;
+  height: 100%;
   overflow: hidden;
   border: 1px solid var(--color-border-subtle);
 }
@@ -2877,6 +2877,11 @@ ul, ol {
   
   .overview-split {
     grid-template-columns: 1fr;
+  }
+  
+  .overview-img {
+    aspect-ratio: 16 / 9;
+    height: auto;
   }
   
   .timeline {
